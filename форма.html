@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Help.css">
+  </head>
+  <body>
+    <h1>Как зарегистрироваться / авторизоваться в Звуке?</h1>
+    <p>текст текст текст</p>
+    
+    <h3>Статья полезна?</h3>
+    <form id="feedbackhelp">
+      <input type="radio" class="imagebuttonyes1" id="btn" name="feedbackhelp" value="yes" required>
+      <input type="radio" class="imagebuttonno1" id="btntwo" name="feedbackhelp" value="no" required>
+      <p id="thanks" class="thanks" style="display:none;">Спасибо за ваш отзыв 🤗</p>
+      <div class="second" id="second" style="display:none;">
+        <h3>Что случилось?</h3>
+        <p><input type="radio" id="noanswer" name="issue" value="noanswer" required>
+           <label for="noanswer" style="font-size: 18px">Нет ответа на мой вопрос</label></p>
+        
+        <p><input type="radio" id="nothelp" name="issue" value="nothelp"/>
+           <label for="nothelp" style="font-size: 18px">Рекомендации не помогли</label></p>
+
+        <p><input type="radio" id="hardtounderstand" name="issue" value="hardtounderstand"/>
+           <label for="hardtounderstand" style="font-size: 18px">Текст трудно понять</label></p>
+
+        <p><input type="radio" id="havemistakes" name="issue" value="havemistakes"/>
+           <label for="havemistakes" style="font-size: 18px">В статье есть опечатки, ошибки, неработающие ссылки</label></p>
+
+        <p><input type="radio" id="dontlikerules" name="issue" value="dontlikerules"/>
+           <label for="dontlikerules" style="font-size: 18px">Не нравятся правила сервиса</label></p>
+        
+        <button class="send">Отправить</button>
+      </div>
+    </form>
+
+    <script>
+		
+		// Обработка клика по кнопке btn
+document.getElementById('btn').addEventListener('click', () => {
+  sendDataToSheet('yes', 'no');
+});
+
+// Обработка клика по кнопке btntwo
+document.getElementById('btntwo').addEventListener('click', () => {
+  sendDataToSheet('no', 'yes');
+});
+
+// Обработка клика по кнопке "Отправить"
+document.querySelector('.send').addEventListener('click', function(event) {
+  event.preventDefault();
+  const issue = document.querySelector('input[name="issue"]:checked').value;
+  sendAdditionalData(issue);
+});
+
+// Функция для отправки данных о клике по кнопкам
+function sendDataToSheet(btnClick, btnTwoClick) {
+  const data = {
+    btnClick: btnClick,
+    btnTwoClick: btnTwoClick
+  };
+
+  const url = 'YOUR_GOOGLE_SCRIPT_URL' + '?' + new URLSearchParams(data).toString();
+
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+// Функция для отправки дополнительных данных
+function sendAdditionalData(issue) {
+  const data = {
+    issue: issue,
+    noAnswer: issue === 'noanswer' ? 'yes' : 'no',
+    notHelp: issue === 'nothelp' ? 'yes' : 'no',
+    hardToUnderstand: issue === 'hardtounderstand' ? 'yes' : 'no',
+    haveMistakes: issue === 'havemistakes' ? 'yes' : 'no',
+    dontLikeRules: issue === 'dontlikerules' ? 'yes' : 'no'
+  };
+
+  const url = 'https://script.google.com/macros/s/AKfycbyYwtsLMbENiTx7VD9I7qCEvqdHIWvSr-H6nO0F_vnES_TEWeA8oWRDg2MH5qqpg3Vn/exec' + '?' + new URLSearchParams(data).toString();
+
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+      // Toggle "thanks" and "second" visibility when "yes" is clicked
+      document.getElementById('btn').addEventListener('click', () => {
+        const thanks = document.getElementById('thanks');
+        const second = document.getElementById('second');
+
+        thanks.style.display = 'block';  // Show "Thank you" message
+        second.style.display = 'none';   // Hide "second" div
+      });
+
+      // Toggle "thanks" and "second" visibility when "no" is clicked
+      document.getElementById('btntwo').addEventListener('click', () => {
+        const thanks = document.getElementById('thanks');
+        const second = document.getElementById('second');
+
+        thanks.style.display = 'none';   // Hide "Thank you" message
+        second.style.display = 'block';  // Show "second" div
+      });
+    </script>
+  </body>
+</html>
+	
+	
+	

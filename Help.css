@@ -1,0 +1,217 @@
+html {
+  background-color: white;
+	font-family: "Inter", sans-serif;
+    font-size: auto;
+	line-height: 1;
+}
+
+
+
+li {
+  margin-left: auto;
+	line-height: 1.5;
+}
+.tab {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+    overflow: hidden;
+    border-bottom:2px solid #E1E4E9;
+	border-radius: 10px;
+    background-color: #eff2f7;
+}
+
+
+.tab button {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+.tab button:hover {
+	font-size: 16px;
+    background-color: #E1E4E9;
+	font-family: "Inter", sans-serif;
+	color: black;
+}
+
+
+.tab button.active {
+	font-size: 16px;
+	font-family: "Inter", sans-serif;
+    background-color: #E1E4E9;
+  color: black;
+}
+
+
+.tabcontent {
+    display: none;
+    padding: none;
+    border: none;
+    border-top: none;
+	line-height: 1.5;
+}
+a:link {color: #02C1F5;
+text-decoration: none}
+a:visited {color:#02C1F5;
+text-decoration: none}
+a:hover {color:#02C1F5;
+text-decoration: underline} 
+a:active {color:#02C1F5;
+text-decoration:none} 
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse; 
+  line-height: 1.1;
+  font-family: "Inter", sans-serif;
+  background:  radial-gradient(farthest-corner at 50% 50%, white);
+  color: #0C213B;
+}
+caption {
+  font-family: annabelle, cursive;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 10px; 
+  color: #F3CD26;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+ }
+caption:before, caption:after {
+  content: "\274B";
+  color: #A9E2CC;
+  margin: 0 10px;
+}
+th {
+  padding: 10px; 
+  border: 1px solid #E1E4E9;
+}
+td {
+  font-size: 0.8em;
+  vertical-align: middle;
+  text-align: center;
+  padding: 5px 7px;
+  border: 1px solid #E1E4E9;
+}
+.first {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+body {
+  padding: 20px;
+  font: 18px/1.5 sans-serif;
+}
+.send {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	background-color: white;
+	border:2px solid #E1E4E9;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+.imagebuttonyes1 {
+ 
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-image: url('https://secure.usedesk.ru/upload/gimages/162443/2025_02_20/vGFZwlXDE066.png');
+  background-size: cover;
+  background-color: white;
+	margin-right: 15px;
+
+
+}
+.imagebuttonno1 {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-image: url('https://secure.usedesk.ru/upload/gimages/162443/2025_02_20/kUBp9f8hanLx.png');
+  background-size: cover;
+  background-color: white;
+
+}
+.imagebuttonyes1:hover {
+  opacity: 0.6;
+  cursor: pointer;
+	border-radius: 15px;
+}
+
+.imagebuttonyes1:active {
+  transform: scale(0.95);
+  cursor: pointer;
+	border-radius: 15px;
+}
+.imagebuttonyes1:checked {
+	border-radius: 15px;
+	border: 2px solid #1B1C1D;
+}
+.imagebuttonno1:checked {
+	border-radius: 15px;
+	border: 2px solid #1B1C1D;
+}
+.imagebuttonno1:hover {
+  opacity: 0.6;
+  cursor: pointer;
+	border-radius: 15px;
+}
+
+.imagebuttonno1:active {
+  transform: scale(0.95);
+  cursor: pointer;
+border-radius: 15px;
+}
+.send:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  background-color: white;
+	border:2px solid #1B1C1D;
+}
+
+.send:active {
+  transform: scale(0.95);
+  cursor: pointer;
+  background-color: white;
+	border:2px solid #1B1C1D;
+  
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 40%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 5px;
+}
+
+
+input:checked {
+  border: 6px solid black;
+}
+.second {display: none}
+.thanks {display: none}
+
+.thanks {
+    margin-top: 10px;
+}
